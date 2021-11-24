@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%=title%></title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+<body>
+
+<%-include('partials/header') %>
+    
+<div style="display: flex;flex-wrap: wrap;">
+    <% if(articles != null) {%>
+    <% articles.forEach(function(news) {%>   
+        <div class=" h-50 card mx-4 my-3" style="width: 18rem;">
+            <% if(news.urlToImage != null) {%>
+            <img src="<%= news.urlToImage%>" class="card-img-top" alt="xyz" style="height:30vh;">
+            <% } else { %>
+                <img src="/img/hacker.jpg" class="card-img-top" alt="xyz" style="height:30vh;">
+            <% }%>
+            <div class=" card-body">
+            <h5 class="card-title" style="height:10vh;font-size: 0.9rem;font-weight: bold;"><%= news.title%></h5>
+            <p class="card-text" style="font-size: 0.9rem;"><%= news.description.substring(0, 80)+"..."%></p>
+            <a href="<%= news.url%>" class="btn btn-primary"> Read Article</a>
+            </div>
+        </div>
+    <% }) %>
+    <% } else { %>  
+      <%-include('partials/footer') %>
+    <% } %>
+
+</div>
+</body>
+</html>

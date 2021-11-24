@@ -1,0 +1,19 @@
+{
+  "name": "newsapi",
+  "version": "1.0.0",
+  "description": "News app",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Pranjal das",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
